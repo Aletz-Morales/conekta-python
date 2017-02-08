@@ -13,7 +13,7 @@ class OrdersEndpointTestCase(BaseEndpointTestCase):
         customer3 = self.client.Customer.create(self.customer_object.copy())
         
         customers = self.client.Customer.where()
-        assert customers.data[0].id    
+        assert customers[0].id    
 
     def test_02_customer_pagination_next(self):
         self.client.api_key = '1tv5yJp3xnVZ7eK67m4h'
@@ -48,7 +48,7 @@ class OrdersEndpointTestCase(BaseEndpointTestCase):
         self.client.Order.create(self.order_object.copy())
         
         orders = self.client.Order.where()
-        assert orders.data[0].id
+        assert orders[0].id
 
     def test_05_order_pagination_next(self):
         self.client.api_key = '1tv5yJp3xnVZ7eK67m4h'

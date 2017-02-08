@@ -137,3 +137,10 @@ class OrdersEndpointTestCase(BaseEndpointTestCase):
         assert shipping_contact.phone           == "+525511008811"
         assert shipping_contact.receiver        == "Dr. Manhatan"
         assert shipping_contact.between_streets == "some streets"
+
+    def test_08_create_plan(self):
+        self.client.api_key = '1tv5yJp3xnVZ7eK67m4h'
+        plan = self.client.Plan.create(self.plan_object)
+        assert plan.id == self.plan_object['id']
+        plan = self.client.Plan.find(plan.id)
+        assert plan.id == self.plan_object['id']

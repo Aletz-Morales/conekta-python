@@ -491,6 +491,12 @@ class Pagination(_CreatableResource):
             query[key_and_param[0]] = key_and_param[1]
         return self.class_name.where(query)
 
+    def __getitem__(self, key):
+        return self.data[key]
+
+    def __setitem__(self, key, value):
+        self.data[key] = value
+
 class PayoutMethod(_UpdatableResource, _DeletableResource): 
 
     def instance_url(self):
